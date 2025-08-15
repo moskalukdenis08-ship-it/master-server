@@ -22,10 +22,9 @@ app.post('/register', (req, res) => {
 
 app.get('/list', (req, res) => {
     const now = Date.now();
-    servers = servers.filter(s => now - s.lastSeen < 30000); // 30 сек
+    servers = servers.filter(s => now - s.lastSeen < 30000); 
     res.json(servers);
 });
 
-// ✅ Railway виділяє порт через змінну середовища
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Master server running on port ${PORT}`));
